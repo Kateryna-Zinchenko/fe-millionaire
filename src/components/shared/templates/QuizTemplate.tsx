@@ -31,8 +31,8 @@ function QuizTemplate() {
 						<SmallCell
 							key={reward.id}
 							text={rewardFormatting(reward.amount)}
-							active={reward.id === Number(questionId!)}
-							inactive={reward.id < Number(questionId)}
+							active={reward.id === Number(questionId!) - 1}
+							inactive={reward.id < Number(questionId) - 1}
 						/>
 					);
 				})}
