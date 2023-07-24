@@ -90,7 +90,7 @@ const CellBox = styled.div`
 `;
 
 const CellBoxInner = styled.div`
-	width: calc(100% - 3px);
+	width: calc(100% - 2px);
 	height: calc(100% - 2px);
 	position: relative;
 `;
