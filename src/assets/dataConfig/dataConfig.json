@@ -1,0 +1,314 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "question": "What is the color of the White House?",
+      "answers": [
+        {
+          "text": "Pink",
+          "correctness": false
+        },
+        {
+          "text": "Blue",
+          "correctness": false
+        },
+        {
+          "text": "White",
+          "correctness": true
+        },
+        {
+          "text": "Rainbow",
+          "correctness": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "How many legs does a spider typically have?",
+      "answers": [
+        {
+          "text": "100",
+          "correctness": false
+        },
+        {
+          "text": "2",
+          "correctness": false
+        },
+        {
+          "text": "8",
+          "correctness": true
+        },
+        {
+          "text": "4",
+          "correctness": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "What do you call a group of crows?",
+      "answers": [
+        {
+          "text": "A flock",
+          "correctness": false
+        },
+        {
+          "text": "A murder",
+          "correctness": true
+        },
+        {
+          "text": "A gaggle",
+          "correctness": false
+        },
+        {
+          "text": "A herd",
+          "correctness": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What is the capital of Australia?",
+      "answers": [
+        {
+          "text": "Sydney",
+          "correctness": false
+        },
+        {
+          "text": "Melbourne",
+          "correctness": false
+        },
+        {
+          "text": "Brisbane",
+          "correctness": false
+        },
+        {
+          "text": "Canberra",
+          "correctness": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "What is the world's largest ocean?",
+      "answers": [
+        {
+          "text": "Atlantic",
+          "correctness": false
+        },
+        {
+          "text": "Indian",
+          "correctness": false
+        },
+        {
+          "text": "Pacific",
+          "correctness": true
+        },
+        {
+          "text": "Arctic",
+          "correctness": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Who wrote the \"Game of Thrones\" series of books?",
+      "answers": [
+        {
+          "text": "J.K. Rowling",
+          "correctness": false
+        },
+        {
+          "text": "George R. R. Martin",
+          "correctness": true
+        },
+        {
+          "text": "Stephen King",
+          "correctness": false
+        },
+        {
+          "text": "Suzanne Collins",
+          "correctness": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "What is the square root of 144?",
+      "answers": [
+        {
+          "text": "12",
+          "correctness": true
+        },
+        {
+          "text": "14",
+          "correctness": false
+        },
+        {
+          "text": "16",
+          "correctness": false
+        },
+        {
+          "text": "18",
+          "correctness": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Which planet is known as the \"Red Planet\"?",
+      "answers": [
+        {
+          "text": "Venus",
+          "correctness": false
+        },
+        {
+          "text": "Mars",
+          "correctness": true
+        },
+        {
+          "text": "Jupiter",
+          "correctness": false
+        },
+        {
+          "text": "Saturn",
+          "correctness": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "question": "What is the chemical symbol for gold?",
+      "answers": [
+        {
+          "text": "Gd",
+          "correctness": false
+        },
+        {
+          "text": "Go",
+          "correctness": false
+        },
+        {
+          "text": "Au",
+          "correctness": true
+        },
+        {
+          "text": "Ag",
+          "correctness": false
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "question": "Who painted the Mona Lisa?",
+      "answers": [
+        {
+          "text": "Vincent Van Gogh",
+          "correctness": false
+        },
+        {
+          "text": "Pablo Picasso",
+          "correctness": false
+        },
+        {
+          "text": "Leonardo da Vinci",
+          "correctness": true
+        },
+        {
+          "text": "Michelangelo",
+          "correctness": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "question": "What is the name of the longest river in the world?",
+      "answers": [
+        {
+          "text": "Amazon",
+          "correctness": false
+        },
+        {
+          "text": "Nile",
+          "correctness": true
+        },
+        {
+          "text": "Yangtze",
+          "correctness": false
+        },
+        {
+          "text": "Mississippi",
+          "correctness": false
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "question": "Who was the first person to walk on the moon?",
+      "answers": [
+        {
+          "text": "Buzz Aldrin",
+          "correctness": false
+        },
+        {
+          "text": "Neil Armstrong",
+          "correctness": true
+        },
+        {
+          "text": "Yuri Gagarin",
+          "correctness": false
+        },
+        {
+          "text": "Michael Collins",
+          "correctness": false
+        }
+      ]
+    }
+  ],
+  "rewards": [
+    {
+      "id": 1,
+      "amount": 500
+    },
+    {
+      "id": 2,
+      "amount": 1000
+    },
+    {
+      "id": 3,
+      "amount": 2000
+    },
+    {
+      "id": 4,
+      "amount": 4000
+    },
+    {
+      "id": 5,
+      "amount": 8000
+    },
+    {
+      "id": 6,
+      "amount": 16000
+    },
+    {
+      "id": 7,
+      "amount": 32000
+    },
+    {
+      "id": 8,
+      "amount": 64000
+    },
+    {
+      "id": 9,
+      "amount": 125000
+    },
+    {
+      "id": 10,
+      "amount": 250000
+    },
+    {
+      "id": 11,
+      "amount": 500000
+    }
+  ]
+}
