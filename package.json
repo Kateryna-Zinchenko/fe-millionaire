@@ -26,11 +26,13 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
     "typescript": "^5.0.2"
   },
+  "homepage": "https://kateryna-zinchenko.github.io/fe-millionaire",
   "name": "fe-millionaire",
   "private": true,
   "scripts": {
@@ -38,7 +40,9 @@
     "dev": "vite",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --ignore-path .eslintignore",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "type": "module",
   "version": "0.0.0",
