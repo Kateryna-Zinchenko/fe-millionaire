@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import '@/styles/global.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import { memo, useEffect, useMemo } from 'react';
-import { AnswerType, QuestionType } from '@/types/question.type.ts';
+import { memo, useEffect, useMemo, useState } from 'react';
+import { AnswerType, QuestionType, StorageQuestionType } from '@/types/question.type.ts';
 import dataConfig from '@/assets/dataConfig/dataConfig.json';
 import BigCell from '@/components/shared/cells/BigCell.tsx';
 import BurgerButton from '@/components/shared/burgerButton/BurgerButton.tsx';
@@ -16,7 +16,7 @@ import {
 	selectWrongAnswers,
 } from '@/store/selectors/answer.ts';
 import { AppDispatch } from '@/main.tsx';
-import { answersActions } from '@/store/actions/answer.ts';
+import answersActions from '@/store/actions/answer.ts';
 
 function Question() {
 	const { questionId } = useParams();
@@ -24,24 +24,51 @@ function Question() {
 	const dispatch = useDispatch<AppDispatch>();
 	const navigateTo = useNavigate();
 
+	const storageData: StorageQuestionType[] = JSON.parse(localStorage.getItem('quiz')!);
+
+	const itemExists = storageData && storageData!.find((question) => question.question.id === Number(questionId));
+
 	const selectedAnswers = useSelector(selectSelectedAnswers);
 	const rightAnswers = useSelector(selectRightAnswers);
 	const wrongAnswers = useSelector(selectWrongAnswers);
 
 	const isOpen = useSelector(selectIsOpen);
 
-	const questionData: QuestionType | undefined = useMemo(
+	const [questionData, setQuestionData] = useState<QuestionType>();
+
+	const questionDataApi: QuestionType | undefined = useMemo(
 		() => dataConfig.data.find((question) => question.id === Number(questionId)),
 		[questionId],
 	);
 
-	const rightStorageAnswers: AnswerType[] = questionData!.answers.filter(
+	const rightStorageAnswers: AnswerType[] = questionDataApi!.answers.filter(
 		(answer) => answer.correctness,
 	);
 
+	const wrongStorageAnswers: AnswerType[] | undefined =
+		itemExists && itemExists!.selectedAnswers.filter((answer) => !answer.correctness);
+
+	const alertMessage = `Please, select ${
+		rightStorageAnswers.length - selectedAnswers!.length
+	} more answer`;
+
+	const confirmMessage = (answer: AnswerType) => `Select answer "${answer.text}"?`;
+
+	const nextQuestionId = Number(questionId!) + 1;
+
+	const setQuestionToStorage = () => {
+		const storageQuestion = {
+			question: questionData,
+			selectedAnswers,
+		};
+		const quiz = JSON.parse(localStorage.getItem('quiz')!);
+		if (quiz) localStorage.setItem('quiz', JSON.stringify([...quiz, storageQuestion]));
+		else localStorage.setItem('quiz', JSON.stringify([storageQuestion]));
+	};
+
 	const handleQuestionClick = (answer: AnswerType) => {
-		if (!selectedAnswers?.some((ans) => ans.text === answer.text)) {
-			if (confirm(`Select answer "${answer.text}"?`)) {
+		if (!selectedAnswers?.some((ans) => ans.text === answer.text) && !itemExists) {
+			if (confirm(confirmMessage(answer))) {
 				dispatch(answersActions.setSelectedAnswers(answer));
 			}
 		}
@@ -50,6 +77,15 @@ function Question() {
 	const handleBurgerMenuClick = () => {
 		dispatch(answersActions.setIsOpen(!isOpen));
 	};
+
+	useEffect(() => {
+		setQuestionData(questionDataApi);
+
+		if (itemExists) {
+			dispatch(answersActions.setRightAnswers(rightStorageAnswers));
+			dispatch(answersActions.setWrongAnswers(wrongStorageAnswers!));
+		}
+	}, [questionDataApi]);
 
 	useEffect(() => {
 		if (selectedAnswers?.length === rightStorageAnswers.length) {
@@ -63,23 +99,25 @@ function Question() {
 			&& selectedAnswers.length !== 0
 			&& selectedAnswers.length !== rightStorageAnswers.length
 		) {
-			alert(`Please, select ${rightStorageAnswers.length - selectedAnswers.length} more answer`);
+			alert(alertMessage);
 		}
 		if (
 			selectedAnswers?.length === rightStorageAnswers.length
 			&& !someAnswersIncorrect(selectedAnswers)
 		) {
+			setQuestionToStorage();
 			setTimeout(() => {
 				if (Number(questionId) === dataConfig.data.length) {
 					navigateTo('/final');
 				} else {
-					navigateTo(`/quiz/${Number(questionId!) + 1}`);
+					navigateTo(`/quiz/${nextQuestionId}`);
 				}
 			}, 1500);
 		} else if (
 			selectedAnswers?.length === rightStorageAnswers.length
 			&& someAnswersIncorrect(selectedAnswers)
 		) {
+			setQuestionToStorage();
 			setTimeout(() => {
 				dispatch(answersActions.setWrongAnswers(selectedAnswers));
 			}, 500);

@@ -1,6 +1,4 @@
-import {
-	combineReducers,
-} from 'redux';
+import { combineReducers } from 'redux';
 
 import { configureStore } from '@reduxjs/toolkit';
 import answersReducer from './reducers/answer.ts';

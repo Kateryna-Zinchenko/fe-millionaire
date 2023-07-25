@@ -6,8 +6,15 @@ interface Props {
 }
 
 function Button({ children }: Props) {
+	const onButtonClick = () => {
+		localStorage.clear();
+	};
+
 	return (
-		<Link to='/quiz/1'>
+		<Link
+			to='/quiz/1'
+			onClick={onButtonClick}
+		>
 			<ButtonWrapper>{children}</ButtonWrapper>
 		</Link>
 	);

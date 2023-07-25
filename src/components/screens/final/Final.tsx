@@ -14,11 +14,7 @@ function Final() {
 				/>
 				<RightWrapper>
 					<Score>Total score:</Score>
-					<Title>
-						{rewardFormatting(reward)}
-						{' '}
-						earned
-					</Title>
+					<Title>{rewardFormatting(reward)} earned</Title>
 					<Button>Try again</Button>
 				</RightWrapper>
 			</Wrapper>

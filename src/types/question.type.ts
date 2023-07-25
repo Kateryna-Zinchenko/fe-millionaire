@@ -8,3 +8,8 @@ export interface QuestionType {
 	question: string;
 	answers: AnswerType[];
 }
+
+export interface StorageQuestionType {
+	question: QuestionType;
+	selectedAnswers: AnswerType[];
+}
