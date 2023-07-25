@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
 interface Props {
-	onClick: () => void;
+  onClick: () => void;
 }
 
 function CloseButton({ onClick }: Props) {
-	return (
-		<Wrapper onClick={onClick}>
-			<Lines />
-		</Wrapper>
-	);
+  return (
+	<Wrapper onClick={onClick}>
+	  <Lines />
+	</Wrapper>
+  );
 }
 
 const Wrapper = styled.div`

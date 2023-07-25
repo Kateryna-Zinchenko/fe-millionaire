@@ -8,37 +8,37 @@ import { useSelector } from 'react-redux';
 import { selectIsOpen } from '@/store/selectors/answer.ts';
 
 function QuizTemplate() {
-	const { rewards } = dataConfig;
-	const { questionId } = useParams();
+  const { rewards } = dataConfig;
+  const { questionId } = useParams();
 
-	const isOpen = useSelector(selectIsOpen);
+  const isOpen = useSelector(selectIsOpen);
 
-	const setReward = (reward: RewardType) => {
-		if (Number(questionId) !== 1 && reward.id === Number(questionId!) - 1) {
-			localStorage.setItem('reward', JSON.stringify(reward.amount));
-		} else if (Number(questionId) === 1) {
-			localStorage.setItem('reward', JSON.stringify(0));
-		}
-	};
+  const setReward = (reward: RewardType) => {
+	if (Number(questionId) !== 1 && reward.id === Number(questionId!) - 1) {
+	  localStorage.setItem('reward', JSON.stringify(reward.amount));
+	} else if (Number(questionId) === 1) {
+	  localStorage.setItem('reward', JSON.stringify(0));
+	}
+  };
 
-	return (
-		<Wrapper isOpen={isOpen}>
-			<Outlet />
-			<Aside isOpen={isOpen}>
-				{rewards.map((reward: RewardType) => {
-					setReward(reward);
-					return (
-						<SmallCell
-							key={reward.id}
-							text={rewardFormatting(reward.amount)}
-							active={reward.id === Number(questionId!) - 1}
-							inactive={reward.id < Number(questionId) - 1}
-						/>
-					);
-				})}
-			</Aside>
-		</Wrapper>
-	);
+  return (
+	<Wrapper isOpen={isOpen}>
+	  <Outlet />
+	  <Aside isOpen={isOpen}>
+		{rewards.map((reward: RewardType) => {
+		  setReward(reward);
+		  return (
+			<SmallCell
+			  key={reward.id}
+			  text={rewardFormatting(reward.amount)}
+			  active={reward.id === Number(questionId!) - 1}
+			  inactive={reward.id < Number(questionId) - 1}
+			/>
+		  );
+		})}
+	  </Aside>
+	</Wrapper>
+  );
 }
 
 const Wrapper = styled.div<{ isOpen: boolean }>`

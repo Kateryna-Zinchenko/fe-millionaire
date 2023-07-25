@@ -22,8 +22,8 @@
 }
 
 #root {
-  height: 100%;
   overflow: hidden;
+  height: 100%;
 }
 
 * {
@@ -31,17 +31,17 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 16px;
-  letter-spacing: 0;
-  text-align: left;
-
-  color: var(--color-text-main);
-
+  box-sizing: border-box;
   margin: 0;
+
   padding: 0;
 
-  box-sizing: border-box;
-
   transition: background-color 0.3s, color 0.3s;
+  text-align: left;
+
+  letter-spacing: 0;
+
+  color: var(--color-text-main);
 }
 
 html {
@@ -61,11 +61,11 @@ a {
 }
 
 h1 {
-  margin: 0;
+  font-size: 32px;
 
   font-weight: 600;
-  font-size: 32px;
   line-height: 37px;
+  margin: 0;
   text-align: center;
 }
 
@@ -74,6 +74,7 @@ h1 {
     font-size: 20px;
     line-height: 23px;
   }
+
   h1 {
     font-size: 56px;
     line-height: 65px;
@@ -93,6 +94,7 @@ h1 {
     font-size: 32px;
     line-height: 36px;
   }
+
   h1 {
     font-size: 90px;
     line-height: 96px;

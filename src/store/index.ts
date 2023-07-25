@@ -4,11 +4,11 @@ import { configureStore } from '@reduxjs/toolkit';
 import answersReducer from './reducers/answer.ts';
 
 const reducers = combineReducers({
-	answersReducer,
+  answersReducer
 });
 
 export type State = ReturnType<typeof reducers>;
 
 export default configureStore({
-	reducer: reducers,
+  reducer: reducers
 });
