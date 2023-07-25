@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import '@/styles/global.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import { memo, useEffect, useMemo, useState } from 'react';
+import {
+	memo, useEffect, useMemo, useState,
+} from 'react';
 import { AnswerType, QuestionType, StorageQuestionType } from '@/types/question.type.ts';
 import dataConfig from '@/assets/dataConfig/dataConfig.json';
 import BigCell from '@/components/shared/cells/BigCell.tsx';
@@ -45,8 +47,8 @@ function Question() {
 		(answer) => answer.correctness,
 	);
 
-	const wrongStorageAnswers: AnswerType[] | undefined =
-		itemExists && itemExists!.selectedAnswers.filter((answer) => !answer.correctness);
+	const wrongStorageAnswers:
+		AnswerType[] | undefined = itemExists && itemExists!.selectedAnswers.filter((answer) => !answer.correctness);
 
 	const alertMessage = `Please, select ${
 		rightStorageAnswers.length - selectedAnswers!.length
