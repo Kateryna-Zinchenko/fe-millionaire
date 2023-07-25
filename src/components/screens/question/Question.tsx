@@ -60,10 +60,17 @@ function Question() {
 
 	const setQuestionToStorage = () => {
 		const storageQuestion = {
+
+
+
 			question: questionData,
 			selectedAnswers,
 		};
 		const quiz = JSON.parse(localStorage.getItem('quiz')!);
+
+
+
+
 		if (quiz) localStorage.setItem('quiz', JSON.stringify([...quiz, storageQuestion]));
 		else localStorage.setItem('quiz', JSON.stringify([storageQuestion]));
 	};
