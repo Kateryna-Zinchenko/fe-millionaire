@@ -132,7 +132,7 @@ function Question() {
   }, [selectedAnswers]);
 
   return (
-	<MainWrapper isOpen={isOpen}>
+	<MainWrapper $isOpen={isOpen}>
 	  <BurgerButtonWrapper>
 		{isOpen ? (
 		  <CloseButton onClick={handleBurgerMenuClick} />
@@ -140,7 +140,7 @@ function Question() {
 		  <BurgerButton onClick={handleBurgerMenuClick} />
 		)}
 	  </BurgerButtonWrapper>
-	  <Wrapper isOpen={isOpen}>
+	  <Wrapper $isOpen={isOpen}>
 		<Main>
 		  <QuestionText>{questionData?.question}</QuestionText>
 		  <Answers type='A'>
@@ -161,17 +161,17 @@ function Question() {
   );
 }
 
-const MainWrapper = styled.div<{ isOpen: boolean }>`
+const MainWrapper = styled.div<{ $isOpen: boolean }>`
   display: flex;
-  height: ${({ isOpen }) => (isOpen ? 'unset' : '100%')};
+  height: ${(props) => (props.$isOpen ? 'unset' : '100%')};
   width: 100%;
   background-color: var(--color-bg-question-page);
   flex-direction: column;
   justify-content: space-between;
 `;
 
-const Wrapper = styled.div<{ isOpen: boolean }>`
-  display: ${({ isOpen }) => (isOpen ? 'none' : 'flex')};
+const Wrapper = styled.div<{ $isOpen: boolean }>`
+  display: ${(props) => (props.$isOpen ? 'none' : 'flex')};
   height: 100%;
   width: 100%;
   background-color: var(--color-bg-question-page);

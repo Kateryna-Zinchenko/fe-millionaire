@@ -19,8 +19,8 @@ function BigCell({
 }: Props) {
   return (
 	<Wrapper
-	  correct={correct!}
-	  wrong={wrong!}
+	  $correct={correct!}
+	  $wrong={wrong!}
 	>
 	  <CellTemplate
 		text={text}
@@ -33,7 +33,7 @@ function BigCell({
   );
 }
 
-const Wrapper = styled.div<{ correct: boolean; wrong: boolean }>`
+const Wrapper = styled.div<{ $correct: boolean; $wrong: boolean }>`
   & hr {
     width: 17px;
   }
@@ -44,7 +44,7 @@ const Wrapper = styled.div<{ correct: boolean; wrong: boolean }>`
 
   & > div:hover hr,
   & > div:hover > div {
-    background: ${(props) => !props.correct && !props.wrong && 'var(--color-border-selected-hover)'};
+    background: ${(props) => !props.$correct && !props.$wrong && 'var(--color-border-selected-hover)'};
   }
 
   & > div > div {

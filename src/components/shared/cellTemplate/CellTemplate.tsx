@@ -23,15 +23,15 @@ function CellTemplate({
   return (
 	<Wrapper
 	  onClick={onClick}
-	  correct={correct!}
-	  wrong={wrong!}
-	  selected={selected!}
-	  active={active!}
+	  $correct={correct!}
+	  $wrong={wrong!}
+	  $selected={selected!}
+	  $active={active!}
 	>
 	  <Stick />
 	  <CellBox>
 		<CellBoxInner>
-		  <Letter inactive={inactive!} active={active!}>{text}</Letter>
+		  <Letter $inactive={inactive!} $active={active!}>{text}</Letter>
 		</CellBoxInner>
 	  </CellBox>
 	  <Stick />
@@ -39,25 +39,25 @@ function CellTemplate({
   );
 }
 
-const Wrapper = styled.div<{ correct: boolean; wrong: boolean; selected: boolean; active: boolean }>`
+const Wrapper = styled.div<{ $correct: boolean; $wrong: boolean; $selected: boolean; $active: boolean }>`
   display: flex;
   align-items: center;
   width: fit-content;
   height: 100%;
 
   & hr {
-    background: ${(props) => (props.selected || props.active)
-    ? 'var(--color-border-selected-hover)' : props.correct ? 'var(--color-border-correct)' : props.wrong ? 'var(--color-border-wrong)' : 'var(--color-border-inactive)'};
+    background: ${(props) => (props.$selected || props.$active)
+    ? 'var(--color-border-selected-hover)' : props.$correct ? 'var(--color-border-correct)' : props.$wrong ? 'var(--color-border-wrong)' : 'var(--color-border-inactive)'};
   }
 
   & > div {
-    background-color: ${(props) => (props.selected || props.active)
-    ? 'var(--color-border-selected-hover)' : props.correct ? 'var(--color-border-correct)' : props.wrong ? 'var(--color-border-wrong)' : 'var(--color-border-inactive)'};
+    background-color: ${(props) => (props.$selected || props.$active)
+    ? 'var(--color-border-selected-hover)' : props.$correct ? 'var(--color-border-correct)' : props.$wrong ? 'var(--color-border-wrong)' : 'var(--color-border-inactive)'};
   }
 
   & > div > div {
-    background-color: ${(props) => (props.selected ? 'var(--color-fill-selected)'
-    : props.correct ? 'var(--color-fill-correct)' : props.wrong ? 'var(--color-fill-wrong)' : '#fff')};
+    background-color: ${(props) => (props.$selected ? 'var(--color-fill-selected)'
+    : props.$correct ? 'var(--color-fill-correct)' : props.$wrong ? 'var(--color-fill-wrong)' : '#fff')};
   }
 `;
 
@@ -89,8 +89,8 @@ const CellBoxInner = styled.div`
   position: relative;
 `;
 
-const Letter = styled.li<{ inactive: boolean; active: boolean }>`
-  color: ${(props) => (props.inactive ? 'var(--color-text-inactive)' : props.active ? 'var(--color-text-active)' : 'var(--color-text-main)')};
+const Letter = styled.li<{ $inactive: boolean; $active: boolean }>`
+  color: ${(props) => (props.$inactive ? 'var(--color-text-inactive)' : props.$active ? 'var(--color-text-active)' : 'var(--color-text-main)')};
 
   &::marker {
     font-weight: 600;

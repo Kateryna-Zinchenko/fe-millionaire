@@ -22,9 +22,9 @@ function QuizTemplate() {
   };
 
   return (
-	<Wrapper isOpen={isOpen}>
+	<Wrapper $isOpen={isOpen}>
 	  <Outlet />
-	  <Aside isOpen={isOpen}>
+	  <Aside $isOpen={isOpen}>
 		{rewards.map((reward: RewardType) => {
 		  setReward(reward);
 		  return (
@@ -41,10 +41,10 @@ function QuizTemplate() {
   );
 }
 
-const Wrapper = styled.div<{ isOpen: boolean }>`
+const Wrapper = styled.div<{ $isOpen: boolean }>`
 	display: flex;
 	justify-content: space-between;
-	flex-direction: ${({ isOpen }) => (isOpen ? 'column' : 'unset')};
+	flex-direction: ${(props) => (props.$isOpen ? 'column' : 'unset')};
 	height: 100%;
 
 	& > div {
@@ -52,13 +52,13 @@ const Wrapper = styled.div<{ isOpen: boolean }>`
 	}
 `;
 
-const Aside = styled.aside<{ isOpen: boolean }>`
+const Aside = styled.aside<{ $isOpen: boolean }>`
 	width: 100%;
 	height: 100%;
 	flex-direction: column-reverse;
 	justify-content: center;
 	gap: 8px;
-	display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+	display: ${(props) => (props.$isOpen ? 'flex' : 'none')};
 	background-color: var(--color-bg-question-page);
 
 	& > div {
