@@ -32,8 +32,8 @@
     "prettier": "^3.0.0",
     "typescript": "^5.0.2"
   },
-  "homepage": "https://kateryna-zinchenko.github.io/fe-millionaire",
   "name": "fe-millionaire",
+  "homepage": "https://kateryna-zinchenko.github.io/fe-millionaire",
   "private": true,
   "scripts": {
     "build": "tsc && vite build",
