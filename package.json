@@ -34,7 +34,7 @@
   },
   "name": "fe-millionaire",
   "homepage": "https://kateryna-zinchenko.github.io/fe-millionaire",
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "tsc && vite build",
     "dev": "vite",
