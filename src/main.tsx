@@ -30,7 +30,7 @@ const router = createHashRouter([
     path: '/final',
     element: <Final/>
   }
-], {basename: '/fe-millionaire'});
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!)
   .render(
