@@ -88,6 +88,10 @@ function Question() {
 	  dispatch(answersActions.setRightAnswers(rightStorageAnswers));
 	  dispatch(answersActions.setWrongAnswers(wrongStorageAnswers!));
     }
+    else {
+      dispatch(answersActions.setRightAnswers(null));
+      dispatch(answersActions.setWrongAnswers(null));
+    }
   }, [questionDataApi]);
 
   useEffect(() => {

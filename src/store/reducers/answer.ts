@@ -21,12 +21,14 @@ export class Answer extends ImmerReducer<AnswerState> {
 	else this.draftState.selectedAnswers = [];
   }
 
-  setRightAnswers(rightAnswers: AnswerType[]) {
-	this.draftState.rightAnswers = rightAnswers;
+  setRightAnswers(rightAnswers: AnswerType[] | null) {
+    if (rightAnswers) this.draftState.rightAnswers = rightAnswers;
+	  else this.draftState.rightAnswers = []
   }
 
-  setWrongAnswers(wrongAnswers: AnswerType[]) {
-	this.draftState.wrongAnswers = wrongAnswers;
+  setWrongAnswers(wrongAnswers: AnswerType[] | null) {
+    if (wrongAnswers) this.draftState.wrongAnswers = wrongAnswers;
+    else this.draftState.wrongAnswers = [];
   }
 
   setIsOpen(isOpen: boolean) {
