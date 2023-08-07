@@ -1,6 +1,7 @@
 import Button from '@/components/shared/button/Button.tsx';
 import styled from 'styled-components';
 import rewardFormatting from '@/utils/rewardFormatting.ts';
+import {repoName} from "@/assets/githubPages/githubPages.ts";
 
 function Final() {
   const reward: number = JSON.parse(localStorage.getItem('reward')!);
@@ -9,7 +10,7 @@ function Final() {
 	<Main>
 	  <Wrapper>
 		<Image
-		  src='/images/home/hand.svg'
+		  src={`${repoName}/images/home/hand.svg`}
 		  alt='hand'
 		/>
 		<RightWrapper>

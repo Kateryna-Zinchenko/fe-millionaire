@@ -1,12 +1,13 @@
 import Button from '@/components/shared/button/Button.tsx';
 import styled from 'styled-components';
+import {repoName} from "@/assets/githubPages/githubPages.ts";
 
 function Home() {
   return (
 	<Main>
 	  <Wrapper>
 		<Image
-		  src='/images/home/hand.svg'
+		  src={`${repoName}/images/home/hand.svg`}
 		  alt='hand'
 		/>
 		<RightWrapper>
